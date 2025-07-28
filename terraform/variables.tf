@@ -5,7 +5,7 @@ variable "region" {
 }
 
 variable "app_name" {
-  description = "Name of the application"
+  description = "AWS_grocery"
   type        = string
   default     = "grocery-app"
 }
