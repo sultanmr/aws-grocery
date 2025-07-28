@@ -1,5 +1,6 @@
 from .. import db
 from pydantic import BaseModel, Field
+from sqlalchemy.dialects.postgresql import ARRAY, TEXT, INTEGER
 
 
 class BasketItem(db.Model):
@@ -20,7 +21,15 @@ class BasketItem(db.Model):
 
 class User(db.Model):
     __tablename__ = 'users'
-
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(50), nullable=False)
+    email = db.Column(db.String(100), unique=True, nullable=False)
+    password = db.Column(db.String(255), nullable=False)
+    fav_products = db.Column(ARRAY(INTEGER), default=[])
+    basket_items = db.relationship('BasketItem', backref='user', lazy=True, cascade="all, delete-orphan")
+    purchased_products = db.Column(ARRAY(INTEGER), default=[])
+    avatar = db.Column(db.String(255), nullable=True)
+'''
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
@@ -29,6 +38,8 @@ class User(db.Model):
     basket_items = db.relationship('BasketItem', backref='user', lazy=True, cascade="all, delete-orphan")
     purchased_products = db.Column(db.String, default="")
     avatar = db.Column(db.String(255), nullable=True)
+'''
+
 
 
 class UserRegistration(BaseModel):

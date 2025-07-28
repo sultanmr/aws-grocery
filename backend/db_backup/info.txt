@@ -1,0 +1,28 @@
+pg_restore -d PG_DB -h RDS_ENDPOINT -p 5432 -U postgres -v db_backup.dump
+
+
+table_schema |  table_name  |    column_name     | data_type | constraint_type 
+--------------+--------------+--------------------+-----------+-----------------
+ public       | basket_items | id                 | integer   | PRIMARY KEY
+ public       | basket_items | product_id         | integer   | FOREIGN KEY
+ public       | basket_items | quantity           | integer   | 
+ public       | basket_items | user_id            | integer   | FOREIGN KEY
+ public       | products     | id                 | integer   | PRIMARY KEY
+ public       | products     | name               | text      | 
+ public       | products     | description        | text      | 
+ public       | products     | price              | real      | 
+ public       | products     | category           | text      | 
+ public       | products     | image_url          | text      | 
+ public       | products     | is_alcohol         | boolean   | 
+ public       | reviews      | id                 | integer   | PRIMARY KEY
+ public       | reviews      | product_id         | integer   | FOREIGN KEY
+ public       | reviews      | author             | text      | 
+ public       | reviews      | rating             | real      | 
+ public       | reviews      | comment            | text      | 
+ public       | users        | id                 | integer   | PRIMARY KEY
+ public       | users        | username           | text      | 
+ public       | users        | email              | text      | UNIQUE
+ public       | users        | password           | text      | 
+ public       | users        | fav_products       | text      | 
+ public       | users        | purchased_products | text      | 
+ public       | users        | avatar             | text      | 

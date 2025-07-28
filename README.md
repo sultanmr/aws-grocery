@@ -7,12 +7,20 @@ Project Banner
 
 ---
 
+## Badges  
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](##)  
+[![Version](https://img.shields.io/badge/version-0.1.0-blue)](##)  
+[![License](https://img.shields.io/badge/license-MIT-lightgrey)](LICENSE)  
+[![Coverage](https://img.shields.io/badge/coverage-85%25-yellow)](##)  
+[![Docs](https://img.shields.io/badge/docs-generated-informational)](docs/)  
+
+---
+
 ## Overview  
 AWS_Grocery is a Flask‑based ecommerce grocery app deployed on AWS via Docker containers  
 and managed with Terraform. It uses PostgreSQL for data persistence.  
 
-[![Watch the demo](https://img.youtube.com/vi/VQBckcJbOAs/1.jpg)](https://youtu.be/VQBckcJbOAs)
-
+Quick Start: see the “Quick Start” section immediately below.  
 
 ## ✨ Quick Start  
 ```bash

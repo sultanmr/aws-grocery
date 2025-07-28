@@ -14,12 +14,13 @@ import axios from 'axios';
 import ProtectedRoute from './Component/ProtectedRoute';
 import ProductDetail from './Component/ProductDetail/ProductDetail';
 import { API_BASE_URL } from './config';
+import Chatbot from './Component/Chatbot/Chatbot';
 
 
 
 const AppContent = ({ products, isFav, basket, setBasket }) => {
   const location = useLocation();
-  const hideHeaderRoutes = ['/auth']; // Add any routes where you don't want to show the header
+  const hideHeaderRoutes = ['/auth', '/chat']; // Add any routes where you don't want to show the header
 
   return (
     <>
@@ -50,8 +51,10 @@ const AppContent = ({ products, isFav, basket, setBasket }) => {
             </ProtectedRoute>
           }
         />
+      <Route path="/chat" element={<Chatbot />} />
       </Routes>
       {!hideHeaderRoutes.includes(location.pathname) && <Footer />}
+      {!hideHeaderRoutes.includes(location.pathname) && <Chatbot />}
     </>
   );
 };
